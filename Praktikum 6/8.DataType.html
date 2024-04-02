@@ -1,0 +1,52 @@
+<!DOCTYPE html> <!-- Deklarasi tipe dokumen HTML -->
+<html lang="en"> <!-- Mulai elemen HTML, dengan atribut bahasa "en" (Inggris) -->
+<head>
+    <meta charset="UTF-8"> <!-- Deklarasi karakter set UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Pengaturan tampilan untuk perangkat seluler -->
+    <title>Document</title> <!-- Judul halaman web -->
+</head>
+<body> <!-- Mulai bagian tubuh dokumen HTML -->
+    <h1> Belajar JavaScript Tipe Data</h1> <!-- Elemen h1 -->
+    <script>
+        //num
+        let num = 90; <!-- Mendefinisikan variabel num dengan nilai 90 -->
+        let decimal = 0.2; 
+        let minus = -99999999999999999999999999999999999999999999999999999999999999999; 
+        console.log(num); 
+        console.log(decimal); 
+        console.log(minus); 
+        
+        //string
+        let name = "ijaz shafarin"; 
+        let salam = 'assalamualaikum wr.wb'; 
+        console.log(salam); 
+
+        //boolean
+        let perempuan = true; 
+        let laki = false; 
+        console.log(laki); 
+        console.log(perempuan); 
+        //null
+        let nulls = null; 
+        console.log(nulls); 
+        //array
+        let fruit = ["pisang", "apel"]; 
+        console.log(fruit); 
+        console.log("tarik boss" + fruit[1]); 
+        fruit[0] = "ACEPP"; 
+        console.log(fruit[0]); 
+
+        //destructing array
+        let lemari = [
+            ["gelang", "kalung", "cincin"],
+            ["kemeja", "baju", "celana"]
+        ]; 
+        let [perhiasan, pakaian] = lemari; 
+        console.log(perhiasan); 
+        console.log(pakaian); 
+
+        //typeof
+        console.log(typeof laki); 
+    </script> <!-- Penutup skrip JavaScript -->
+</body> <!-- Penutup bagian tubuh dokumen HTML -->
+</html> <!-- Penutup elemen HTML -->

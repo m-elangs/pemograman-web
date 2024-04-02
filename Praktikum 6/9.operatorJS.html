@@ -1,0 +1,63 @@
+<!DOCTYPE html> <!-- Deklarasi tipe dokumen HTML -->
+<html lang="en"> <!-- Mulai elemen HTML, dengan atribut bahasa "en" (Inggris) -->
+<head>
+    <meta charset="UTF-8"> <!-- Deklarasi karakter set UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Pengaturan tampilan untuk perangkat seluler -->
+    <title>Document</title> <!-- Judul halaman web -->
+</head>
+<body> <!-- Mulai bagian tubuh dokumen HTML -->
+    <h1>Belajar JavaScript Operator</h1> <!-- Elemen h1 -->
+    <script>
+        let num; 
+        num = -99; 
+        console.log(num); 
+
+        num = +99; 
+        console.log(num); 
+
+        num = 1 + 3; 
+        console.log(num);
+
+        num = 2 * 10000; 
+        console.log(num); 
+
+        num = 2/5000000000; 
+        console.log(num); 
+
+        num = 6**2; 
+        console.log(num); 
+
+        num = 8+9/2*100; 
+        console.log(num); 
+
+        num = 8%2; 
+        console.log(num); 
+
+
+        // incremental dan decremental
+
+        let val; 
+        val = 2; 
+        val++; 
+        console.log(val); 
+        val = 2; 
+        //decrement
+
+        val--; 
+        console.log(val); 
+
+        // spread operator
+
+        let Namamu = ["agus", "budi", "rudi"]; 
+        let seperti = ["harimau", "macan", "ular"]; 
+        let kumpul = [...Namamu,...seperti, "check"];
+        console.log(Namamu); 
+        console.log(seperti); 
+        console.log(kumpul); 
+        let orang = {
+            nama: "ijaz",
+            nim: "1203220147", };
+        
+    </script> <!-- Penutup skrip JavaScript -->
+</body> <!-- Penutup bagian tubuh dokumen HTML -->
+</html> <!-- Penutup elemen HTML -->
