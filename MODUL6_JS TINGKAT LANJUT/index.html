@@ -1,0 +1,220 @@
+<!DOCTYPE html> <!-- Deklarasi -->
+<html lang="id"> <!-- Bahasa yang digunakan pada dokumen adalah bahasa indonesia -->
+  <head>
+    <meta charset="UTF-8" /> <!-- set karakter UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Registrasi</title> <!-- judul halaman web -->
+    <link rel="stylesheet" href="style.css"> <!-- Tag file eksternal -->
+  </head>
+  <body>
+    <h1>Form Registrasi</h1> <!-- judul utama -->
+    <!-- mengidentifikasi formulir dan menentukan URL ke mana data formulir akan dikirim -->
+    <form 
+      id="registrationForm"
+      name="registrationForm"
+      method="post"
+      action="proses.php"
+    >
+      <p> <!-- input teks untuk memasukkan nama pengguna -->
+        Nama: <input type="text" name="nama" id="nama" />
+        <span id="namaSpan"></span>
+      </p>
+      <p><!-- input untuk memasukan username -->
+        Username: <input type="text" name="username" id="username" />
+        <span id="usernameSpan"></span>
+      </p>
+      <p> <!--  input untuk memasukkan alamat email pengguna. -->
+        Email: <input type="email" name="email" id="email" />
+        <span id="emailSpan"></span>
+      </p>
+      <p> <!--  input untuk memasukkan password -->
+        Password: <input type="password" name="password" id="password" />
+        <span id="passwordSpan"></span>
+      </p>
+      <p><!--  input untuk memasukkan konfirmasi password -->
+        Konfirmasi Password:
+        <input
+          type="password"
+          name="konfirmasi_password"
+          id="konfirmasi_password"
+        />
+        <span id="konfirmasiPasswordSpan"></span>
+      </p>
+      <p><!--  input untuk memasukkan no telpon -->
+        No Telepon:
+        <input type="tel" name="no_telepon" id="no_telepon" pattern="[0-9]+" />
+        <span id="noTeleponSpan"></span>
+      </p>
+        <p class="radio-container">
+          Jenis Kelamin: <!-- input radio untuk memilih jenis kelamin -->
+          <input type="radio" class="custom-radio" name="jenis_kelamin" id="jenis_kelamin_pria" value="Pria" />
+          <label class="radio-label" for="jenis_kelamin_pria">Pria</label>
+          <input type="radio" class="custom-radio" name="jenis_kelamin" id="jenis_kelamin_wanita" value="Wanita" />
+          <label class="radio-label" for="jenis_kelamin_wanita">Wanita</label>
+          <span id="jenisKelaminSpan"></span>
+        </p>
+        
+      <p> <!-- input untuk memasukkan alamat website -->
+        Alamat Website: <input type="url" name="website" id="website" />
+        <span id="websiteSpan"></span>
+      </p>
+      <p> <!-- untuk mengirimkan data -->
+        <input type="submit" name="submit" id="submit" value="Daftar" />
+      </p>
+    </form>
+    <!-- validasi formulir registrasi sebelum data dikirim ke server -->
+    <script> 
+      document
+        .getElementById("registrationForm")
+        .addEventListener("submit", function (event) {
+          let namaNode = document.getElementById("nama");
+          let usernameNode = document.getElementById("username");
+          let emailNode = document.getElementById("email");
+          let passwordNode = document.getElementById("password");
+          let konfirmasiPasswordNode = document.getElementById(
+            "konfirmasi_password"
+          );
+          let noTeleponNode = document.getElementById("no_telepon");
+          let jenisKelaminNodePria =
+            document.getElementById("jenis_kelamin_pria");
+          let jenisKelaminNodeWanita = document.getElementById(
+            "jenis_kelamin_wanita"
+          );
+          let websiteNode = document.getElementById("website");
+
+          let namaSpanNode = document.getElementById("namaSpan");
+          let usernameSpanNode = document.getElementById("usernameSpan");
+          let emailSpanNode = document.getElementById("emailSpan");
+          let passwordSpanNode = document.getElementById("passwordSpan");
+          let konfirmasiPasswordSpanNode = document.getElementById(
+            "konfirmasiPasswordSpan"
+          );
+          let noTeleponSpanNode = document.getElementById("noTeleponSpan");
+          let jenisKelaminSpanNode =
+            document.getElementById("jenisKelaminSpan");
+          let websiteSpanNode = document.getElementById("websiteSpan");
+
+          let namaError = "";
+          let usernameError = "";
+          let emailError = "";
+          let passwordError = "";
+          let konfirmasiPasswordError = "";
+          let noTeleponError = "";
+          let jenisKelaminError = "";
+          let websiteError = "";
+
+          // Validasi Nama
+          if (namaNode.value.trim() === "") {
+            namaError = "Nama harus diisi";
+          }
+
+          // Validasi Username
+          if (usernameNode.value.trim() === "") {
+            usernameError = "Username harus diisi";
+          }
+
+          // Validasi Email
+          if (emailNode.value.trim() === "") {
+            emailError = "Email harus diisi";
+          } else if (!validateEmail(emailNode.value.trim())) {
+            emailError = "Email tidak valid";
+          }
+
+          // Validasi Password
+          if (passwordNode.value.trim() === "") {
+            passwordError = "Password harus diisi";
+          }
+
+          // Validasi Konfirmasi Password
+          if (konfirmasiPasswordNode.value.trim() === "") {
+            konfirmasiPasswordError = "Konfirmasi password harus diisi";
+          } else if (
+            konfirmasiPasswordNode.value.trim() !== passwordNode.value.trim()
+          ) {
+            konfirmasiPasswordError = "Konfirmasi password tidak sesuai";
+          }
+
+          // Validasi No Telepon
+          if (noTeleponNode.value.trim() === "") {
+            noTeleponError = "Nomor telepon harus diisi";
+          }
+
+          // Validasi Jenis Kelamin
+          if (
+            !jenisKelaminNodePria.checked &&
+            !jenisKelaminNodeWanita.checked
+          ) {
+            jenisKelaminError = "Jenis kelamin harus dipilih";
+          }
+
+          // Validasi Alamat Website
+          if (websiteNode.value.trim() === "") {
+            websiteError = "Alamat website harus diisi";
+          }
+
+          // Mengosongkan pesan kesalahan sebelum validasi ulang
+          namaSpanNode.innerHTML = "";
+          usernameSpanNode.innerHTML = "";
+          emailSpanNode.innerHTML = "";
+          passwordSpanNode.innerHTML = "";
+          konfirmasiPasswordSpanNode.innerHTML = "";
+          noTeleponSpanNode.innerHTML = "";
+          jenisKelaminSpanNode.innerHTML = "";
+          websiteSpanNode.innerHTML = "";
+
+          if (namaError !== "") {
+            namaSpanNode.innerHTML = namaError;
+            namaSpanNode.className = "error";
+            event.preventDefault();
+          }
+
+          if (usernameError !== "") {
+            usernameSpanNode.innerHTML = usernameError;
+            usernameSpanNode.className = "error";
+            event.preventDefault();
+          }
+
+          if (emailError !== "") {
+            emailSpanNode.innerHTML = emailError;
+            emailSpanNode.className = "error";
+            event.preventDefault();
+          }
+
+          if (passwordError !== "") {
+            passwordSpanNode.innerHTML = passwordError;
+            passwordSpanNode.className = "error";
+            event.preventDefault();
+          }
+
+          if (konfirmasiPasswordError !== "") {
+            konfirmasiPasswordSpanNode.innerHTML = konfirmasiPasswordError;
+            konfirmasiPasswordSpanNode.className = "error";
+            event.preventDefault();
+          }
+
+          if (noTeleponError !== "") {
+            noTeleponSpanNode.innerHTML = noTeleponError;
+            noTeleponSpanNode.className = "error";
+            event.preventDefault();
+          }
+
+          if (jenisKelaminError !== "") {
+            jenisKelaminSpanNode.innerHTML = jenisKelaminError;
+            jenisKelaminSpanNode.className = "error";
+            event.preventDefault();
+          }
+
+          if (websiteError !== "") {
+            websiteSpanNode.innerHTML = websiteError;
+            websiteSpanNode.className = "error";
+            event.preventDefault();
+          }
+        });
+
+      function validateEmail(email) {
+        // Regular expression for validating an email address
+        let re = /\S+@\S+\.\S+/;
+        return re.test(email);
+      }
+    </script>
+  </body>

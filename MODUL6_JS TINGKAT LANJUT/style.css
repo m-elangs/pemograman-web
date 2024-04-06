@@ -1,0 +1,107 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form p {
+  margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="url"],
+input[type="submit"],
+input[type="radio"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.error {
+  color: #ff0000;
+  font-size: 0.9em;
+}
+
+label {
+  margin-right: 10px;
+}
+
+span {
+  display: inline-block;
+  margin-top: 5px;
+  font-size: 0.9em;
+}
+/* Style radio buttons */
+.radio-container {
+  margin-bottom: 15px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.radio-label {
+  display: inline-block;
+  cursor: pointer;
+  margin-right: 20px; /* Menyesuaikan jarak antara label dengan input radio */
+}
+
+.radio-label:before {
+  content: "";
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  vertical-align: middle; /* Mengatur posisi vertikal agar sejajar */
+  margin-right: 5px;
+}
+
+input[type="radio"]:checked + .radio-label:before {
+  background-color: hsl(237, 83%, 55%);
+  border-color: #4c5eaf;
+}
+
+/* Hide default radio button */
+input[type="radio"] {
+  display: none;
+}
+
+/* Style custom radio button */
+.custom-radio {
+  display: inline-block;
+  width: 0;
+}
+
+.custom-radio:checked + .radio-label:before {
+  background-color: hsl(237, 83%, 55%);
+  border-color: #4c5eaf;
+}
